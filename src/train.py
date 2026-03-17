@@ -23,9 +23,20 @@ def train_model(
     lr: float = 1e-3,
     weight_decay: float = 1e-4,
     patience: int = 20,
+    hidden_dims: tuple[int, ...] = (128, 64, 32),
+    dropout: float = 0.3,
+    scheduler_factor: float = 0.5,
+    scheduler_patience: int = 7,
+    epoch_callback=None,
+    verbose: bool = True,
     device: str = "cpu",
 ) -> tuple[BracketNet, dict]:
     """Train BracketNet with early stopping.
+
+    Args:
+        epoch_callback: Optional callable(epoch, val_loss) called each epoch.
+            May raise optuna.TrialPruned to abort training early.
+        verbose: If False, suppress per-epoch logging.
 
     Returns:
         (best_model, history) where history has train_loss, val_loss lists.
@@ -33,10 +44,10 @@ def train_model(
     if input_dim is None:
         input_dim = train_ds.features.shape[1]
 
-    model = BracketNet(input_dim=input_dim).to(device)
+    model = BracketNet(input_dim=input_dim, hidden_dims=hidden_dims, dropout=dropout).to(device)
     criterion = nn.BCELoss()
     optimizer = AdamW(model.parameters(), lr=lr, weight_decay=weight_decay)
-    scheduler = ReduceLROnPlateau(optimizer, mode="min", factor=0.5, patience=7)
+    scheduler = ReduceLROnPlateau(optimizer, mode="min", factor=scheduler_factor, patience=scheduler_patience)
 
     train_loader = DataLoader(train_ds, batch_size=batch_size, shuffle=True)
     val_loader = DataLoader(val_ds, batch_size=len(val_ds))
@@ -73,9 +84,12 @@ def train_model(
 
         scheduler.step(val_loss)
 
-        if epoch % 25 == 0 or epoch == 1:
+        if verbose and (epoch % 25 == 0 or epoch == 1):
             lr_now = optimizer.param_groups[0]["lr"]
             print(f"Epoch {epoch:3d} | Train: {avg_train_loss:.4f} | Val: {val_loss:.4f} | LR: {lr_now:.1e}")
+
+        if epoch_callback is not None:
+            epoch_callback(epoch, val_loss)
 
         # Early stopping
         if val_loss < best_val_loss:
@@ -85,13 +99,15 @@ def train_model(
         else:
             epochs_no_improve += 1
             if epochs_no_improve >= patience:
-                print(f"Early stopping at epoch {epoch} (best val loss: {best_val_loss:.4f})")
+                if verbose:
+                    print(f"Early stopping at epoch {epoch} (best val loss: {best_val_loss:.4f})")
                 break
 
     if best_state is not None:
         model.load_state_dict(best_state)
 
-    print(f"Best validation loss: {best_val_loss:.4f}")
+    if verbose:
+        print(f"Best validation loss: {best_val_loss:.4f}")
     return model, history
 
 
@@ -137,14 +153,28 @@ def save_model(model: BracketNet, path: str, scaler=None, metadata: dict | None 
 def load_model(path: str, device: str = "cpu") -> tuple[BracketNet, dict]:
     """Load model from checkpoint.
 
+    Infers architecture (hidden_dims) from weight shapes so old checkpoints
+    without metadata are still compatible.
+
     Returns:
         (model, checkpoint_dict)
     """
     checkpoint = torch.load(path, map_location=device, weights_only=False)
-    input_dim = checkpoint["model_state_dict"]["net.0.weight"].shape[1]
+    state_dict = checkpoint["model_state_dict"]
 
-    model = BracketNet(input_dim=input_dim).to(device)
-    model.load_state_dict(checkpoint["model_state_dict"])
+    # Find all Linear layers (2-D weight tensors) by sequential index
+    linear_indices = sorted(
+        int(k.split(".")[1])
+        for k in state_dict
+        if k.startswith("net.") and k.endswith(".weight") and state_dict[k].dim() == 2
+    )
+    input_dim = state_dict["net.0.weight"].shape[1]
+    # All hidden layers except the final output layer
+    hidden_dims = tuple(state_dict[f"net.{i}.weight"].shape[0] for i in linear_indices[:-1])
+    dropout = checkpoint.get("metadata", {}).get("dropout", 0.3)
+
+    model = BracketNet(input_dim=input_dim, hidden_dims=hidden_dims, dropout=dropout).to(device)
+    model.load_state_dict(state_dict)
     model.eval()
 
     return model, checkpoint

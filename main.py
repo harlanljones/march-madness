@@ -1,6 +1,7 @@
 """CLI entry point for March Madness bracket prediction."""
 
 import argparse
+import json
 import sys
 from pathlib import Path
 
@@ -14,6 +15,20 @@ from src.train import train_model, train_ensemble, save_model, load_model
 from src.evaluate import evaluate_model, plot_calibration
 from src.bracket import simulate_bracket, print_bracket, save_bracket
 from src.features import N_FEATURES
+
+
+def _load_tuned_config(config_path: str) -> dict:
+    """Load a best_config.json produced by the tune command."""
+    with open(config_path) as f:
+        raw = json.load(f)
+    if "hidden_dims" in raw:
+        raw["hidden_dims"] = tuple(raw["hidden_dims"])
+    # Strip internal metadata keys (prefixed with _)
+    config = {k: v for k, v in raw.items() if not k.startswith("_")}
+    # Map tuner key name to train_model param name
+    if "early_stop_patience" in config:
+        config["patience"] = config.pop("early_stop_patience")
+    return config
 
 
 def cmd_train(args):
@@ -34,13 +49,27 @@ def cmd_train(args):
     device = "cuda" if torch.cuda.is_available() else "cpu"
     print(f"Device: {device}")
 
+    tuned = {}
+    if args.config:
+        tuned = _load_tuned_config(args.config)
+        print(f"Loaded tuned config from {args.config}: {tuned}")
+
+    base_metadata = {
+        "train_end": args.train_end,
+        "val_start": args.val_start,
+        "hidden_dims": list(tuned.get("hidden_dims", (128, 64, 32))),
+        "dropout": tuned.get("dropout", 0.3),
+    }
+
+    # Tuned values override CLI defaults
+    train_kwargs = dict(device=device, epochs=args.epochs, patience=args.patience)
+    train_kwargs.update(tuned)
+
     if args.ensemble > 1:
         models, history = train_ensemble(
             train_ds, val_ds,
             n_models=args.ensemble,
-            device=device,
-            epochs=args.epochs,
-            patience=args.patience,
+            **train_kwargs,
         )
         # Save each model
         for i, model in enumerate(models):
@@ -48,15 +77,14 @@ def cmd_train(args):
                 model,
                 f"{args.output_dir}/ensemble_{i}.pt",
                 scaler=scaler,
-                metadata={"train_end": args.train_end, "val_start": args.val_start},
+                metadata=base_metadata,
             )
         # Save first model as "best" too
         save_model(models[0], f"{args.output_dir}/best.pt", scaler=scaler,
-                    metadata={"train_end": args.train_end, "val_start": args.val_start, "ensemble_size": args.ensemble})
+                    metadata={**base_metadata, "ensemble_size": args.ensemble})
     else:
-        model, history = train_model(train_ds, val_ds, device=device, epochs=args.epochs, patience=args.patience)
-        save_model(model, f"{args.output_dir}/best.pt", scaler=scaler,
-                    metadata={"train_end": args.train_end, "val_start": args.val_start})
+        model, history = train_model(train_ds, val_ds, **train_kwargs)
+        save_model(model, f"{args.output_dir}/best.pt", scaler=scaler, metadata=base_metadata)
 
     # Evaluate on validation set
     print("\n--- Validation Results ---")
@@ -104,6 +132,34 @@ def cmd_evaluate(args):
     if args.calibration:
         plot_calibration(results["labels"], results["predictions"],
                          save_path=args.calibration)
+
+
+def cmd_tune(args):
+    """Run Optuna hyperparameter search."""
+    from src.tuner import run_tuning
+
+    print("Loading data...")
+    data = load_all(args.data_dir)
+
+    train_seasons = list(range(2003, args.train_end + 1))
+    val_seasons = list(range(args.val_start, args.val_end + 1))
+    print(f"Training seasons: {train_seasons[0]}-{train_seasons[-1]}")
+    print(f"Validation seasons: {val_seasons[0]}-{val_seasons[-1]}")
+
+    device = "cuda" if torch.cuda.is_available() else "cpu"
+    print(f"Device: {device}")
+
+    run_tuning(
+        data=data,
+        train_seasons=train_seasons,
+        val_seasons=val_seasons,
+        n_trials=args.trials,
+        storage_path=args.storage,
+        study_name=args.study_name,
+        epochs_per_trial=args.epochs,
+        output_config_path=args.output_config,
+        device=device,
+    )
 
 
 def cmd_bracket(args):
@@ -164,6 +220,7 @@ def main():
     p_train.add_argument("--patience", type=int, default=20)
     p_train.add_argument("--ensemble", type=int, default=1, help="Number of ensemble models")
     p_train.add_argument("--output-dir", default="outputs/models")
+    p_train.add_argument("--config", default=None, help="Path to best_config.json from tune command")
 
     # Evaluate
     p_eval = subparsers.add_parser("evaluate", help="Evaluate a trained model")
@@ -182,6 +239,20 @@ def main():
                            default="deterministic")
     p_bracket.add_argument("--simulations", type=int, default=10000, help="Monte Carlo runs")
 
+    # Tune
+    p_tune = subparsers.add_parser("tune", help="Hyperparameter search with Optuna")
+    p_tune.add_argument("--data-dir", default="data/raw")
+    p_tune.add_argument("--train-end", type=int, default=2023, help="Last training season")
+    p_tune.add_argument("--val-start", type=int, default=2024, help="First validation season")
+    p_tune.add_argument("--val-end", type=int, default=2025, help="Last validation season")
+    p_tune.add_argument("--trials", type=int, default=50, help="Number of Optuna trials")
+    p_tune.add_argument("--epochs", type=int, default=150, help="Max epochs per trial")
+    p_tune.add_argument("--storage", default="outputs/tuning/optuna.db",
+                        help="SQLite path for study persistence (supports resume)")
+    p_tune.add_argument("--study-name", default="bracketnet")
+    p_tune.add_argument("--output-config", default="outputs/tuning/best_config.json",
+                        help="Where to save the best config JSON")
+
     args = parser.parse_args()
 
     if args.command == "train":
@@ -190,6 +261,8 @@ def main():
         cmd_evaluate(args)
     elif args.command == "bracket":
         cmd_bracket(args)
+    elif args.command == "tune":
+        cmd_tune(args)
 
 
 if __name__ == "__main__":
