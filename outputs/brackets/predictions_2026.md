@@ -10,167 +10,167 @@ Monte Carlo odds are from 10,000 simulated tournaments.
 
 ### West
 
-| | Team | | Team | | Winner | Confidence |
-|--|------|--|------|--|--------|------------|
-| **(1) Duke** | vs | (16) Siena | | **Duke** | 98.6% |
-| **(8) Ohio St** | vs | (9) TCU | | **Ohio St** | 68.4% |
-| **(5) St John's** | vs | (12) Northern Iowa | | **St John's** | 83.2% |
-| **(4) Kansas** | vs | (13) Cal Baptist | | **Kansas** | 96.9% |
-| **(6) Louisville** | vs | (11) South Florida | | **Louisville** | 83.5% |
-| **(3) Michigan St** | vs | (14) N Dakota St | | **Michigan St** | 61.6% |
-| (7) UCLA | vs | **(10) UCF** | | **UCF** ⚡ | 51.1% |
-| **(2) Connecticut** | vs | (15) Furman | | **Connecticut** | 99.7% |
+| Team 1 | vs | Team 2 | Winner | Confidence |
+|--------|:--:|--------|--------|------------|
+| **(1) Duke** | vs | (16) Siena | **Duke** | 98.6% |
+| **(8) Ohio St** | vs | (9) TCU | **Ohio St** | 68.4% |
+| **(5) St John's** | vs | (12) Northern Iowa | **St John's** | 83.2% |
+| **(4) Kansas** | vs | (13) Cal Baptist | **Kansas** | 96.9% |
+| **(6) Louisville** | vs | (11) South Florida | **Louisville** | 83.5% |
+| **(3) Michigan St** | vs | (14) N Dakota St | **Michigan St** | 61.6% |
+| (7) UCLA | vs | **(10) UCF** | **UCF** ⚡ | 51.1% |
+| **(2) Connecticut** | vs | (15) Furman | **Connecticut** | 99.7% |
 
 ### East
 
-| | Team | | Team | | Winner | Confidence |
-|--|------|--|------|--|--------|------------|
-| **(1) Florida** | vs | (16) Prairie View | | **Florida** | 99.8% |
-| (8) Clemson | vs | **(9) Iowa** | | **Iowa** ⚡ | 81.3% |
-| **(5) Vanderbilt** | vs | (12) McNeese St | | **Vanderbilt** | 63.1% |
-| **(4) Nebraska** | vs | (13) Troy | | **Nebraska** | 88.2% |
-| **(6) North Carolina** | vs | (11) VCU | | **North Carolina** | 81.8% |
-| **(3) Illinois** | vs | (14) Penn | | **Illinois** | 94.2% |
-| **(7) St Mary's CA** | vs | (10) Texas A&M | | **St Mary's CA** | 84.6% |
-| **(2) Houston** | vs | (15) Idaho | | **Houston** | 99.2% |
+| Team 1 | vs | Team 2 | Winner | Confidence |
+|--------|:--:|--------|--------|------------|
+| **(1) Florida** | vs | (16) Prairie View | **Florida** | 99.8% |
+| (8) Clemson | vs | **(9) Iowa** | **Iowa** ⚡ | 81.3% |
+| **(5) Vanderbilt** | vs | (12) McNeese St | **Vanderbilt** | 63.1% |
+| **(4) Nebraska** | vs | (13) Troy | **Nebraska** | 88.2% |
+| **(6) North Carolina** | vs | (11) VCU | **North Carolina** | 81.8% |
+| **(3) Illinois** | vs | (14) Penn | **Illinois** | 94.2% |
+| **(7) St Mary's CA** | vs | (10) Texas A&M | **St Mary's CA** | 84.6% |
+| **(2) Houston** | vs | (15) Idaho | **Houston** | 99.2% |
 
 ### South
 
-| | Team | | Team | | Winner | Confidence |
-|--|------|--|------|--|--------|------------|
-| **(1) Michigan** | vs | (16) UMBC | | **Michigan** | 99.6% |
-| (8) Georgia | vs | **(9) St Louis** | | **St Louis** ⚡ | 71.0% |
-| **(5) Texas Tech** | vs | (12) Akron | | **Texas Tech** | 85.0% |
-| **(4) Alabama** | vs | (13) Hofstra | | **Alabama** | 95.5% |
-| **(6) Tennessee** | vs | (11) SMU | | **Tennessee** | 62.9% |
-| **(3) Virginia** | vs | (14) Wright St | | **Virginia** | 94.8% |
-| (7) Kentucky | vs | **(10) Santa Clara** | | **Santa Clara** ⚡ | 58.6% |
-| **(2) Iowa St** | vs | (15) Tennessee St | | **Iowa St** | 90.4% |
+| Team 1 | vs | Team 2 | Winner | Confidence |
+|--------|:--:|--------|--------|------------|
+| **(1) Michigan** | vs | (16) UMBC | **Michigan** | 99.6% |
+| (8) Georgia | vs | **(9) St Louis** | **St Louis** ⚡ | 71.0% |
+| **(5) Texas Tech** | vs | (12) Akron | **Texas Tech** | 85.0% |
+| **(4) Alabama** | vs | (13) Hofstra | **Alabama** | 95.5% |
+| **(6) Tennessee** | vs | (11) SMU | **Tennessee** | 62.9% |
+| **(3) Virginia** | vs | (14) Wright St | **Virginia** | 94.8% |
+| (7) Kentucky | vs | **(10) Santa Clara** | **Santa Clara** ⚡ | 58.6% |
+| **(2) Iowa St** | vs | (15) Tennessee St | **Iowa St** | 90.4% |
 
 ### Midwest
 
-| | Team | | Team | | Winner | Confidence |
-|--|------|--|------|--|--------|------------|
-| **(1) Arizona** | vs | (16) LIU Brooklyn | | **Arizona** | 99.9% |
-| (8) Villanova | vs | **(9) Utah St** | | **Utah St** ⚡ | 74.4% |
-| **(5) Wisconsin** | vs | (12) High Point | | **Wisconsin** | 70.3% |
-| **(4) Arkansas** | vs | (13) Hawaii | | **Arkansas** | 77.2% |
-| **(6) BYU** | vs | (11) Texas | | **BYU** | 58.9% |
-| **(3) Gonzaga** | vs | (14) Kennesaw | | **Gonzaga** | 91.7% |
-| **(7) Miami FL** | vs | (10) Missouri | | **Miami FL** | 83.4% |
-| **(2) Purdue** | vs | (15) Queens NC | | **Purdue** | 98.9% |
+| Team 1 | vs | Team 2 | Winner | Confidence |
+|--------|:--:|--------|--------|------------|
+| **(1) Arizona** | vs | (16) LIU Brooklyn | **Arizona** | 99.9% |
+| (8) Villanova | vs | **(9) Utah St** | **Utah St** ⚡ | 74.4% |
+| **(5) Wisconsin** | vs | (12) High Point | **Wisconsin** | 70.3% |
+| **(4) Arkansas** | vs | (13) Hawaii | **Arkansas** | 77.2% |
+| **(6) BYU** | vs | (11) Texas | **BYU** | 58.9% |
+| **(3) Gonzaga** | vs | (14) Kennesaw | **Gonzaga** | 91.7% |
+| **(7) Miami FL** | vs | (10) Missouri | **Miami FL** | 83.4% |
+| **(2) Purdue** | vs | (15) Queens NC | **Purdue** | 98.9% |
 
 
 ## Round of 32
 
 ### West
 
-| | Team | | Team | | Winner | Confidence |
-|--|------|--|------|--|--------|------------|
-| **(1) Duke** | vs | (8) Ohio St | | **Duke** | 91.7% |
-| (5) St John's | vs | **(4) Kansas** | | **Kansas** | 68.8% |
-| **(6) Louisville** | vs | (3) Michigan St | | **Louisville** | 67.8% |
-| (10) UCF | vs | **(2) Connecticut** | | **Connecticut** | 95.1% |
+| Team 1 | vs | Team 2 | Winner | Confidence |
+|--------|:--:|--------|--------|------------|
+| **(1) Duke** | vs | (8) Ohio St | **Duke** | 91.7% |
+| (5) St John's | vs | **(4) Kansas** | **Kansas** | 68.8% |
+| **(6) Louisville** | vs | (3) Michigan St | **Louisville** | 67.8% |
+| (10) UCF | vs | **(2) Connecticut** | **Connecticut** | 95.1% |
 
 ### East
 
-| | Team | | Team | | Winner | Confidence |
-|--|------|--|------|--|--------|------------|
-| **(1) Florida** | vs | (9) Iowa | | **Florida** | 95.9% |
-| (5) Vanderbilt | vs | **(4) Nebraska** | | **Nebraska** | 68.5% |
-| (6) North Carolina | vs | **(3) Illinois** | | **Illinois** | 55.3% |
-| (7) St Mary's CA | vs | **(2) Houston** | | **Houston** | 83.3% |
+| Team 1 | vs | Team 2 | Winner | Confidence |
+|--------|:--:|--------|--------|------------|
+| **(1) Florida** | vs | (9) Iowa | **Florida** | 95.9% |
+| (5) Vanderbilt | vs | **(4) Nebraska** | **Nebraska** | 68.5% |
+| (6) North Carolina | vs | **(3) Illinois** | **Illinois** | 55.3% |
+| (7) St Mary's CA | vs | **(2) Houston** | **Houston** | 83.3% |
 
 ### South
 
-| | Team | | Team | | Winner | Confidence |
-|--|------|--|------|--|--------|------------|
-| **(1) Michigan** | vs | (9) St Louis | | **Michigan** | 88.6% |
-| (5) Texas Tech | vs | **(4) Alabama** | | **Alabama** | 69.6% |
-| (6) Tennessee | vs | **(3) Virginia** | | **Virginia** | 68.7% |
-| **(10) Santa Clara** | vs | (2) Iowa St | | **Santa Clara** | 63.2% |
+| Team 1 | vs | Team 2 | Winner | Confidence |
+|--------|:--:|--------|--------|------------|
+| **(1) Michigan** | vs | (9) St Louis | **Michigan** | 88.6% |
+| (5) Texas Tech | vs | **(4) Alabama** | **Alabama** | 69.6% |
+| (6) Tennessee | vs | **(3) Virginia** | **Virginia** | 68.7% |
+| **(10) Santa Clara** | vs | (2) Iowa St | **Santa Clara** | 63.2% |
 
 ### Midwest
 
-| | Team | | Team | | Winner | Confidence |
-|--|------|--|------|--|--------|------------|
-| **(1) Arizona** | vs | (9) Utah St | | **Arizona** | 80.8% |
-| **(5) Wisconsin** | vs | (4) Arkansas | | **Wisconsin** | 53.9% |
-| **(6) BYU** | vs | (3) Gonzaga | | **BYU** | 81.7% |
-| (7) Miami FL | vs | **(2) Purdue** | | **Purdue** | 68.0% |
+| Team 1 | vs | Team 2 | Winner | Confidence |
+|--------|:--:|--------|--------|------------|
+| **(1) Arizona** | vs | (9) Utah St | **Arizona** | 80.8% |
+| **(5) Wisconsin** | vs | (4) Arkansas | **Wisconsin** | 53.9% |
+| **(6) BYU** | vs | (3) Gonzaga | **BYU** | 81.7% |
+| (7) Miami FL | vs | **(2) Purdue** | **Purdue** | 68.0% |
 
 
 ## Sweet 16
 
 ### West
 
-| | Team | | Team | | Winner | Confidence |
-|--|------|--|------|--|--------|------------|
-| **(1) Duke** | vs | (4) Kansas | | **Duke** | 60.3% |
-| **(6) Louisville** | vs | (2) Connecticut | | **Louisville** | 61.7% |
+| Team 1 | vs | Team 2 | Winner | Confidence |
+|--------|:--:|--------|--------|------------|
+| **(1) Duke** | vs | (4) Kansas | **Duke** | 60.3% |
+| **(6) Louisville** | vs | (2) Connecticut | **Louisville** | 61.7% |
 
 ### East
 
-| | Team | | Team | | Winner | Confidence |
-|--|------|--|------|--|--------|------------|
-| (1) Florida | vs | **(4) Nebraska** | | **Nebraska** ⚡ | 71.8% |
-| **(3) Illinois** | vs | (2) Houston | | **Illinois** | 60.1% |
+| Team 1 | vs | Team 2 | Winner | Confidence |
+|--------|:--:|--------|--------|------------|
+| (1) Florida | vs | **(4) Nebraska** | **Nebraska** ⚡ | 71.8% |
+| **(3) Illinois** | vs | (2) Houston | **Illinois** | 60.1% |
 
 ### South
 
-| | Team | | Team | | Winner | Confidence |
-|--|------|--|------|--|--------|------------|
-| **(1) Michigan** | vs | (4) Alabama | | **Michigan** | 78.3% |
-| **(3) Virginia** | vs | (10) Santa Clara | | **Virginia** | 94.0% |
+| Team 1 | vs | Team 2 | Winner | Confidence |
+|--------|:--:|--------|--------|------------|
+| **(1) Michigan** | vs | (4) Alabama | **Michigan** | 78.3% |
+| **(3) Virginia** | vs | (10) Santa Clara | **Virginia** | 94.0% |
 
 ### Midwest
 
-| | Team | | Team | | Winner | Confidence |
-|--|------|--|------|--|--------|------------|
-| **(1) Arizona** | vs | (5) Wisconsin | | **Arizona** | 85.5% |
-| (6) BYU | vs | **(2) Purdue** | | **Purdue** | 61.1% |
+| Team 1 | vs | Team 2 | Winner | Confidence |
+|--------|:--:|--------|--------|------------|
+| **(1) Arizona** | vs | (5) Wisconsin | **Arizona** | 85.5% |
+| (6) BYU | vs | **(2) Purdue** | **Purdue** | 61.1% |
 
 
 ## Elite 8
 
 ### West
 
-| | Team | | Team | | Winner | Confidence |
-|--|------|--|------|--|--------|------------|
-| **(1) Duke** | vs | (6) Louisville | | **Duke** | 65.6% |
+| Team 1 | vs | Team 2 | Winner | Confidence |
+|--------|:--:|--------|--------|------------|
+| **(1) Duke** | vs | (6) Louisville | **Duke** | 65.6% |
 
 ### East
 
-| | Team | | Team | | Winner | Confidence |
-|--|------|--|------|--|--------|------------|
-| (4) Nebraska | vs | **(3) Illinois** | | **Illinois** | 75.0% |
+| Team 1 | vs | Team 2 | Winner | Confidence |
+|--------|:--:|--------|--------|------------|
+| (4) Nebraska | vs | **(3) Illinois** | **Illinois** | 75.0% |
 
 ### South
 
-| | Team | | Team | | Winner | Confidence |
-|--|------|--|------|--|--------|------------|
-| (1) Michigan | vs | **(3) Virginia** | | **Virginia** ⚡ | 62.3% |
+| Team 1 | vs | Team 2 | Winner | Confidence |
+|--------|:--:|--------|--------|------------|
+| (1) Michigan | vs | **(3) Virginia** | **Virginia** ⚡ | 62.3% |
 
 ### Midwest
 
-| | Team | | Team | | Winner | Confidence |
-|--|------|--|------|--|--------|------------|
-| **(1) Arizona** | vs | (2) Purdue | | **Arizona** | 67.6% |
+| Team 1 | vs | Team 2 | Winner | Confidence |
+|--------|:--:|--------|--------|------------|
+| **(1) Arizona** | vs | (2) Purdue | **Arizona** | 67.6% |
 
 
 ## Final Four
 
-| | Team | | Team | | Winner | Confidence |
-|--|------|--|------|--|--------|------------|
-| **(1) Duke** | vs | (3) Illinois | | **Duke** | 58.8% |
-| (3) Virginia | vs | **(1) Arizona** | | **Arizona** | 65.6% |
+| Team 1 | vs | Team 2 | Winner | Confidence |
+|--------|:--:|--------|--------|------------|
+| **(1) Duke** | vs | (3) Illinois | **Duke** | 58.8% |
+| (3) Virginia | vs | **(1) Arizona** | **Arizona** | 65.6% |
 
 
 ## Championship
 
-| | Team | | Team | | Winner | Confidence |
-|--|------|--|------|--|--------|------------|
-| (1) Duke | vs | **(1) Arizona** | | **Arizona** | 53.1% |
+| Team 1 | vs | Team 2 | Winner | Confidence |
+|--------|:--:|--------|--------|------------|
+| (1) Duke | vs | **(1) Arizona** | **Arizona** | 53.1% |
 
 ---
 
@@ -183,7 +183,7 @@ Monte Carlo odds are from 10,000 simulated tournaments.
 ### Championship Probability
 
 | Team | Win Title | Reach Final Four |
-|------|-----------|-----------------|
+|------|:---------:|:----------------:|
 | Michigan | 14.9% | 41.6% |
 | Arizona | 12.8% | 50.2% |
 | Duke | 12.6% | 36.6% |
@@ -208,7 +208,7 @@ Monte Carlo odds are from 10,000 simulated tournaments.
 ### Final Four Probability (all teams)
 
 | Team | Final Four% |
-|------|------------|
+|------|:-----------:|
 | Arizona | 50.2% |
 | Michigan | 41.6% |
 | Duke | 36.6% |
